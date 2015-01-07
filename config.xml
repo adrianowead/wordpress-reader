@@ -1,12 +1,45 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.infonaveia.wordpress-reader" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.infonaveia.wordpress-reader"
+		version="1.0.0" 
+		xmlns="http://www.w3.org/ns/widgets" 
+		xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    
     <name>InfoNaVeia - Wordpress Reader</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Este aplicativo tornará o acesso às postagens do InfoNaVeia, muito mais rápido e fácil.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="adriano@adrianomaciel.ninja" href="http://adrianomaciel.ninja">
+        Adriano Maciel & InfoNaVeia
     </author>
-    <content src="index.html" />
-    <access origin="*" />
+
+    <!-- como não precisamos de permissões especiais para o app,
+		como acesso aos contatos e coisas do tipo,
+		vamos definir que não precisamos de nenhuma permissão especial,
+		apenas o acesso à inernet, coisa que o cordova já adiciona automaticamente -->
+    <preference name="permissions"                value="none"/>
+
+    <!-- Personalize seu aplicativo com o elemento preference. -->
+    <!-- todos: versão atual do PhoneGap / Cordova -->
+    <preference name="phonegap-version"           value="3.5.0" />
+    
+    <!-- todos: default significa que ambas as orientações estarão disponíveis, retrato e paisagem -->
+    <preference name="orientation"                value="default" />
+    
+    <!-- todos: valores possíveis handset, tablet ou universal -->
+    <preference name="target-device"              value="universal" />
+
+    <!-- todos: esconde a barra de status no topo do dispositivo -->
+    <preference name="fullscreen"                 value="true" />
+
+    <!-- android: MIN SDK versão suportada no device, a versão 7 refere-se ao android 1.6
+         A versão máxima não é definida por padrão -->
+    <preference name="android-minSdkVersion"      value="7" />
+
+    <!-- android: local de instalação do app. 'auto' o usuário pode escolher. 
+         'internalOnly' é na memória do dispositivo.
+         'preferExternal' é no SDCard. -->
+    <preference name="android-installLocation"    value="auto" />
+
+    <content src="index.html" /> <!-- arquivo de 'start', onde tem a tela inicial, além da tela de splash -->
+    <access origin="*" /> <!-- necessário para que o aplicativo receba dados externos, como um post back por exemplo -->
 </widget>
