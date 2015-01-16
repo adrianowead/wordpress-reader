@@ -1,0 +1,7 @@
+<ul>
+	<% for(var i = 0; i < supplies.length; i++){ %>
+		<li>
+			<a href="javascript:carregarPostsCategoriaID(<%= supplies[i].ID %>)"><%= supplies[i].name %></a>
+		</li>
+	<% } %>
+</ul>
