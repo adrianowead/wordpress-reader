@@ -1,7 +1,7 @@
 <ul>
 	<% for(var i = 0; i < supplies.length; i++){ %>
 		<li>
-			<a href="javascript:carregarPostsCategoriaID(<%= supplies[i].ID %>)"><%= supplies[i].name %></a>
+			<a href="javascript:wp.carregarPostsCategoriaName('<%= supplies[i].name %>')"><%= supplies[i].name %></a>
 		</li>
 	<% } %>
 </ul>

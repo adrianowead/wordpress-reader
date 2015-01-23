@@ -1,0 +1,10 @@
+<div>
+	<h1><%= supplies.title %></h1>
+	<p>
+		<span>Autor: <%= supplies.author.name %></span>
+		<span>Data: <%= supplies.data_postagem.getDate() %>/<%= supplies.data_postagem.getMonth() + 1 %>/<%= supplies.data_postagem.getFullYear() %> <%= supplies.hora_postagem %></span>
+	</p>
+	<div>
+		<%= supplies.content %>
+	</div>
+</div>
