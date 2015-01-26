@@ -32,6 +32,8 @@ var filestocopy = [{
     "drawable/android/drawable-port-mdpi/screen.png": "platforms/android/res/drawable-port-mdpi/screen.png"
 }, {
     "drawable/android/drawable-land-mdpi/screen.png": "platforms/android/res/drawable-land-mdpi/screen.png"
+}, {
+    "drawable/android/9-patch.9.png": "platforms/android/res/9-patch.9.png"
 } ];
 
 var fs = require('fs');
