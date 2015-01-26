@@ -44,7 +44,7 @@
     <access origin="*" /> <!-- necessário para que o aplicativo receba dados externos, como um post back por exemplo -->
 
     <!-- splash screen -->
-    <preference name="loadUrlTimeoutValue" value="60000" /> <!-- Aumenta o tempo limite de carregamento antes de disparar um erro, ideal para dispositivos com o hardware limitado e que demoram muito para carregar o app -->
+    <preference name="loadUrlTimeoutValue" value="5000" /> <!-- Aumenta o tempo limite de carregamento antes de disparar um erro, ideal para dispositivos com o hardware limitado e que demoram muito para carregar o app -->
 
     <preference name="SplashScreenDelay" value="5000" /> <!-- adiciona um tempo de 'espera' de cinco segundos na tela de splash, isso é útil para dispositivos com hardware limitados -->
 
@@ -58,22 +58,22 @@
     
     <!-- definições de splash screen para cada 'densidade' de resoluções android -->
     <platform name="android">
-        <splash src="platforms/android/res/drawable-land-hdpi/screen.png" density="land-hdpi"/>
-        <splash src="platforms/android/res/drawable-land-ldpi/screen.png" density="land-ldpi"/>
-        <splash src="platforms/android/res/drawable-land-mdpi/screen.png" density="land-mdpi"/>
-        <splash src="platforms/android/res/drawable-land-xhdpi/screen.png" density="land-xhdpi"/>
+        <splash src="www/res/android/screen/land-hdpi.png" density="land-hdpi"/>
+        <splash src="www/res/android/screen/land-ldpi.png" density="land-ldpi"/>
+        <splash src="www/res/android/screen/land-mdpi.png" density="land-mdpi"/>
+        <splash src="www/res/android/screen/land-xhdpi.png" density="land-xhdpi"/>
 
-        <splash src="platforms/android/res/drawable-port-hdpi/screen.png" density="port-hdpi"/>
-        <splash src="platforms/android/res/drawable-port-ldpi/screen.png" density="port-ldpi"/>
-        <splash src="platforms/android/res/drawable-port-mdpi/screen.png" density="port-mdpi"/>
-        <splash src="platforms/android/res/drawable-port-xhdpi/screen.png" density="port-xhdpi"/>
+        <splash src="www/res/android/screen/port-hdpi.png" density="port-hdpi"/>
+        <splash src="www/res/android/screen/port-ldpi.png" density="port-ldpi"/>
+        <splash src="www/res/android/screen/port-mdpi.png" density="port-mdpi"/>
+        <splash src="www/res/android/screen/port-xhdpi.png" density="port-xhdpi"/>
 
         <!-- 9-patch apenas para altas resoluções -->
-        <splash src="platforms/android/res/9-patch.9.png" density="xxhdpi"/>
-        <splash src="platforms/android/res/9-patch.9.png" density="xxxhdpi"/>
-        <splash src="platforms/android/res/9-patch.9.png" density="tvdpi"/>
+        <splash src="www/res/android/screen/9-patch.9.png" density="xxhdpi"/>
+        <splash src="www/res/android/screen/9-patch.9.png" density="xxxhdpi"/>
+        <splash src="www/res/android/screen/9-patch.9.png" density="tvdpi"/>
 
         <!-- global, para todas as resoluções não definidas anteriormente -->
-        <splash src="platforms/android/res/9-patch.9.png" />
+        <splash src="www/res/android/screen/9-patch.9.png" />
     </platform>
 </widget>
