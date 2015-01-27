@@ -12,7 +12,7 @@ var pluginlist = [
 
     //terceiros
     "nl.x-services.plugins.toast",
-    "https://github.com/Paldom/SpinnerDialog.git"
+    "hu.dpal.phonegap.plugins.SpinnerDialog"
 ];
 
 // no need to configure below

@@ -1,0 +1,8 @@
+<h3>Resultado da busca</h3>
+<ul>
+	<% for(var i = 0; i < supplies.length; i++){ %>
+		<li>
+			<a href="javascript:wp.carregarConteudoPost(<%= supplies[i].ID %>)"><%= supplies[i].title %></a>
+		</li>
+	<% } %>
+</ul>

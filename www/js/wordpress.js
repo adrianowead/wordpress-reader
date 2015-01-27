@@ -9,6 +9,9 @@ var wp = {
 
 		//carregando categorias
 		this.carregarCategorias();
+
+		//carregando funcionalidade para busca de posts
+		this.bindBuscaPost();
 	},
 	//função para carregar todas as categorias disponíveis
 	carregarCategorias: function(){
@@ -93,6 +96,60 @@ var wp = {
             	//removendo o spinner
 				window.plugins.spinnerDialog.hide();
 			}
+		});
+	},
+	//função para executar busca de posts
+	bindBuscaPost: function(){
+		//listener para quando o usuário submeter o formulário
+		$("#frmSearch").bind('submit', function(){
+			//validando string
+			var busca = $.trim($("#busca").val());
+
+			//não permitir buscar conteúdo com menos de três caracteres
+			if( busca.length < 3 )
+			{
+				//alerta utilizando o dialog
+				navigator.notification.alert(
+				    'Informe mais do que dois caracteres para realizar a busca.',  // message
+				    function(){},         // callback
+				    'Texto muito curto!',            // title
+				    'Ok'                  // buttonName
+				);
+			}
+			else
+			{
+				//formatando string para Uri
+				busca = encodeURIComponent(busca);
+
+				//exibir a mensagem de carregamento com o spinnerDialog
+				window.plugins.spinnerDialog.show("Carregando", "Buscando posts que contenham o texto informado...");
+
+				$.ajax({
+					url: wp.url + 'posts?filter[s]=' + busca,
+					type: 'get',
+					success: function(data){
+						//carregando o layout
+						data = {'supplies':data};
+						var html = new EJS({url: 'template/lista-busca.ejs'}).render(data);
+
+						//adicionando ao html atual
+						$("#app").html( html );
+
+						//removendo o spinner
+						window.plugins.spinnerDialog.hide();
+					},
+					error: function(){
+						window.plugins.toast.showLongBottom('Desculpe, mas não foi possível carregar a busca de posts, verifique sua conexão com a internet e tente novamente.');
+		            	navigator.notification.vibrate(1000);
+
+		            	//removendo o spinner
+						window.plugins.spinnerDialog.hide();
+					}
+				});
+			}
+
+			//impedindo que o formulário seja enviado via requisições post
+			return false;
 		});
 	}
 }
