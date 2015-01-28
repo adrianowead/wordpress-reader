@@ -79,6 +79,12 @@ var wp = {
 				//convertendo o dia para formato de data
 				data.data_postagem = new Date( data.dia_postagem[0], data.dia_postagem[1] - 1, data.dia_postagem[2] );
 
+				//verificando se o post é um favorito
+				data.textoFavorito = 'Favoritar';
+
+				if( localStorage.getItem("favorito_" + postId) == 1 )
+					data.textoFavorito = 'Desfavoritar';
+
 				//carregando o layout
 				data = {'supplies':data};
 				var html = new EJS({url: 'template/conteudo-posts.ejs'}).render(data);
@@ -151,5 +157,35 @@ var wp = {
 			//impedindo que o formulário seja enviado via requisições post
 			return false;
 		});
+	},
+	//função para favoritar ou desfavortar um post
+	//recebe como parâmetro o id o post e o título do mesmo
+	alterarFavorito: function(postId, titulo){
+		//verificando se o post já é um favorito
+		if( localStorage.getItem("favorito_" + postId) == 1 )
+		{
+			//desfavoritando, setando como 0 (zero)
+			localStorage.setItem("favorito_" + postId, 0);
+
+			//atualizando texto no html
+			$("#postFavorito").html('Favoritar');
+
+			//avisando usuário
+			window.plugins.toast.showLongBottom('Conteúdo removido dos favoritos com sucesso!');
+		}
+		else
+		{
+			//favoritando, setando como 1
+			localStorage.setItem("favorito_" + postId, 1);
+
+			//salvando título do post
+			localStorage.setItem("favorito_titulo_" + postId, titulo);
+
+			//atualizando texto no html
+			$("#postFavorito").html('Desfavoritar');
+
+			//avisando usuário
+			window.plugins.toast.showLongBottom('Conteúdo adicionado aos favoritos com sucesso!');
+		}
 	}
 }

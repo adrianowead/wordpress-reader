@@ -7,4 +7,8 @@
 	<div>
 		<%= supplies.content %>
 	</div>
+
+	<div class="acoes_post">
+		<a href="javascript:wp.alterarFavorito(<%= supplies.ID %>,'<%= supplies.title %>');" id="postFavorito"><%= supplies.textoFavorito %></a>
+	</div>
 </div>
