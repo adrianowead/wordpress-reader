@@ -1,7 +1,21 @@
 <ul>
-	<% for(var i = 0; i < supplies.length; i++){ %>
+	<% for(var i = 0; i < supplies.categorias.length; i++){ %>
 		<li>
-			<a href="javascript:wp.carregarPostsCategoriaName('<%= supplies[i].name %>')"><%= supplies[i].name %></a>
+			<a href="javascript:wp.carregarPostsCategoriaName('<%= supplies.categorias[i].name %>')"><%= supplies.categorias[i].name %></a>
 		</li>
 	<% } %>
 </ul>
+
+<% if( supplies.favoritos.length > 0 ){ %>
+	<div id="postsFavoritos">
+		<h3>Meus favoritos</h3>
+
+		<ul>
+			<% for(var i = 0; i < supplies.favoritos.length; i++){ %>
+				<li>
+					<a href="javascript:wp.carregarConteudoPost(<%= supplies.favoritos[i].ID %>);"><%= supplies.favoritos[i].titulo %></a>
+				</li>
+			<% } %>
+		</ul>
+	</div>
+<% } %>

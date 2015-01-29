@@ -21,6 +21,32 @@ var wp = {
 			success: function(data){
 				//em caso de sucesso, carregar o layout do menu principal
 				//carregando layout
+				
+				//adicionando os resultados do ajax em um objeto
+				data.categorias = data;
+
+				//buscando favoritos
+				data.favoritos = [];
+				
+				for (var key in localStorage)
+				{
+					//verificando apenas favoritos
+					if( key.indexOf('favorito_') > -1 )
+					{
+						//verificando apenas os marcados com 1, que são favoritados
+						if( localStorage.getItem(key) == 1 )
+						{
+							//recuperando apenas o id do post
+							ID = key.replace('favorito_','');
+
+							//adicionando na listagem de favoritos o título e o id do post
+							tmp = {'titulo':localStorage.getItem('favorito_titulo_' + ID), 'ID' : ID};
+
+							data.favoritos.push(tmp);
+						}
+					}
+				}
+				
 				data = {'supplies':data};
 				var html = new EJS({url: 'template/menu-principal.ejs'}).render(data);
 
