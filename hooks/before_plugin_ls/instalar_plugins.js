@@ -12,7 +12,8 @@ var pluginlist = [
 
     //terceiros
     "nl.x-services.plugins.toast",
-    "hu.dpal.phonegap.plugins.SpinnerDialog"
+    "hu.dpal.phonegap.plugins.SpinnerDialog",
+    "https://github.com/brodysoft/Cordova-SQLitePlugin"
 ];
 
 // no need to configure below
