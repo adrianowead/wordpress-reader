@@ -36,30 +36,28 @@ var util = {
 
 	//função para converter a imagem em base 64
 	getBase64FromImageUrl: function(URL) {
-	    var img = new Image();
-	    img.crossOrigin = "Anonymous";
-	    img.src = URL;
+		URL = 'http://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png';
 
-	    img.onload = function () {
-		    var canvas = document.createElement("canvas");
-		    canvas.width = img.width;
-		    canvas.height = img.height;
+	    var canvas = document.createElement('CANVAS');
+		var ctx = canvas.getContext('2d');
+		var img = new Image;
+		img.crossOrigin = 'Anonymous';
+		
+		img.onload = function(){
+			canvas.height = img.height;
+			canvas.width = img.width;
+		  	ctx.drawImage(img,0,0);
+		  	var dataURL = canvas.toDataURL('image/png');
+		  	//callback.call(this, dataURL);
+	        // Clean up
+		  	canvas = null; 
 
-		    var ctx = canvas.getContext("2d");
-		    ctx.drawImage(img, 0, 0);
-
-		    $("#app").append(canvas);
-
-		    var dataURL = canvas.toDataURL("image/png", 1.0);
-
-		    //alert(  dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
-
-		    //base64 = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-
-		    //substituindo a url no html pelo base64
+		  	//substituindo a url no html pelo base64
 		    util.htmlContent = util.htmlContent.replace('src="' + URL + '"', 'src="' + dataURL + '"');
 
-		    alert( util.htmlContent );
-	    }
+		    $("#app").append(dataURL);
+		};
+
+		img.src = URL;
 	}
 }
