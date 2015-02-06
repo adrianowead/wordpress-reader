@@ -4,11 +4,12 @@
 		<span>Autor: <%= supplies.author.name %></span>
 		<span>Data: <%= supplies.data_postagem.getDate() %>/<%= supplies.data_postagem.getMonth() + 1 %>/<%= supplies.data_postagem.getFullYear() %> <%= supplies.hora_postagem %></span>
 	</p>
-	<div>
+	<div id="conteudoPost">
 		<%= supplies.content %>
 	</div>
 
 	<div class="acoes_post">
 		<a href="javascript:wp.alterarFavorito(<%= supplies.ID %>,'<%= supplies.title %>');" id="postFavorito"><%= supplies.textoFavorito %></a>
+		<a href="javascript:model.adicionarConteudoOffline(<%= supplies.ID %>);" id="postOffline">Salvar offline</a>
 	</div>
 </div>

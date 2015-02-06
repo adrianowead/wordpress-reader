@@ -24,5 +24,28 @@ var model = {
 			//setando como instalado
 	        localStorage.setItem("banco_instalado", "1");
 		}
+	},
+
+	//função para adicionar um conteúdo offline
+	adicionarConteudoOffline: function(postId){
+		//buscando conteúdo do post
+		conteudo = $("#conteudoPost").html();
+
+		//processando conteúdo no Util, para armazenamento embutido das imagens
+		util.processarImagens(conteudo);
+	},
+
+	//função para listar todos os posts armazenados offline
+	listarConteudoOffline: function(){
+		//verificando se o banco está instalado localmente
+		model.instalarBancoLocal();
+
+		//carregando banco de dados
+		db = window.sqlitePlugin.openDatabase({name: "wordpress-reader.sqlite3"});
+
+		//carregando IDs das mensagens presentes no app
+		db.executeSql("select favorito_id, post_id, conteudo from tb_favorito;", [], function(res) {
+			alert.log( res.rows.length );
+		});
 	}
 }
