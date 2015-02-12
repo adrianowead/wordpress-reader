@@ -32,7 +32,10 @@ var model = {
 		conteudo = $("#conteudoPost").html();
 
 		//processando conteúdo no Util, para armazenamento embutido das imagens
-		util.processarImagens(conteudo);
+		util.processarImagens(conteudo, function(conteudo){
+			//armazenando o conteúdo offline
+			//alert(util.htmlContent);
+		});
 	},
 
 	//função para listar todos os posts armazenados offline
