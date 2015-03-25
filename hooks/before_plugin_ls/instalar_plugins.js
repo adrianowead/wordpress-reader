@@ -12,7 +12,7 @@ var pluginlist = [
 
     //terceiros
     "nl.x-services.plugins.toast",
-    "hu.dpal.phonegap.plugins.SpinnerDialog",
+    "https://github.com/Paldom/SpinnerDialog.git",
     "https://github.com/brodysoft/Cordova-SQLitePlugin"
 ];
 
